@@ -1488,7 +1488,7 @@ function findClosestAnime(animes, query) {
  *   - Return the episodes data to the front-end
  */
 const BASE_URLS = [
-  'http://207.154.244.233:1000/api/v2/hianime',
+  'http://localhost:1000/api/v2/hianime',
   'http://164.92.202.165:2000/api/v2/hianime'
 ];
 
@@ -1925,7 +1925,7 @@ app.get("/search", async (req, res) => {
   try {
     // Make the request to the actual backend
     const response = await axios.get(
-      `http://207.154.244.233:1000/api/v2/hianime/search`,
+      `http://localhost:1000/api/v2/hianime/search`,
       {
         params: { q, page }, // Pass query parameters
       }
@@ -1949,7 +1949,7 @@ app.get("/subepisodes", async (req, res) => {
   try {
     // Make a request to the backend API to fetch the episodes
     const response = await axios.get(
-      `http://207.154.244.233:1000/api/v2/hianime/anime/${animeId}/episodes`
+      `http://localhost:1000/api/v2/hianime/anime/${animeId}/episodes`
     );
 
     // Forward the response back to the client
@@ -2003,7 +2003,7 @@ app.get("/fetchsubtitle", async (req, res) => {
       for (const server of servers) {
         try {
           response = await axios.get(
-            "http://207.154.244.233:1000/api/v2/hianime/episode/sources",
+            "http://localhost:1000/api/v2/hianime/episode/sources",
             { params: { animeEpisodeId, server, category } }
           );
 
